@@ -5,6 +5,7 @@ import ir.cactus.model.Customer;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.log4j.Logger;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -13,6 +14,9 @@ public class BankAccountFileReader {
 
    private  ArrayList<Account>accounts;
    private  ArrayList<Customer>customers;
+
+   private Logger logger=Logger.getLogger(BankAccountFileReader.class);
+
 
     public BankAccountFileReader(){
         this.accounts=new ArrayList<>();
@@ -40,7 +44,7 @@ public class BankAccountFileReader {
             }
 
      }catch (Exception e){
-         e.printStackTrace();
+         logger.error(e);
      }
 
         this.accounts=accounts;
@@ -58,7 +62,7 @@ public class BankAccountFileReader {
             }
 
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
         this.customers=customers;
     }

@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ir.cactus.model.Account;
 import ir.cactus.model.Customer;
+import org.apache.log4j.Logger;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class JsonErrorFileMaker {
     private ArrayList<Customer>customers;
 
     private ArrayList<JsonFileModel> jsonFileModels;
+
+    private Logger logger=Logger.getLogger(JsonErrorFileMaker.class);
 
     public void setAccounts(ArrayList<Account> accounts) {
         this.accounts = accounts;
@@ -49,7 +52,7 @@ public class JsonErrorFileMaker {
             }
             writer.write("]");
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -69,7 +72,7 @@ public class JsonErrorFileMaker {
             }
             writer.write("]");
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
     }
     public void MakeAllErrorJsonFile(){
@@ -86,7 +89,7 @@ public class JsonErrorFileMaker {
             }
             fileWriter.write("]");
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
 
     }

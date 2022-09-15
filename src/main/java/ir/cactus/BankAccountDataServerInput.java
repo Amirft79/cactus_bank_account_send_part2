@@ -4,6 +4,7 @@ package ir.cactus;
 import ir.cactus.reader.AccountMakeErrorFileJob;
 import ir.cactus.reader.AccountReaderJob1;
 import ir.cactus.reader.AccountReaderJob2;
+import org.apache.log4j.Logger;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import java.util.Date;
@@ -13,7 +14,7 @@ import org.quartz.SimpleTrigger;
 
 
 public class BankAccountDataServerInput {
-
+    private static Logger logger=Logger.getLogger(BankAccountDataServerInput.class);
 
     public static void main(String[] args) {
 
@@ -51,7 +52,7 @@ public class BankAccountDataServerInput {
 
 
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
 
 

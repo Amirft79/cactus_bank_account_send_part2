@@ -2,6 +2,7 @@ package ir.cactus.utils;
 
 import ir.cactus.model.Account;
 import ir.cactus.model.Customer;
+import org.apache.log4j.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class BankDataValidator {
     private ArrayList<Customer>Clone_ERROR_customers;
     private ArrayList<Account> Clone_ERROR_accounts;
     private ArrayList<Customer>Clone_customers;
+
+    private Logger logger=Logger.getLogger(BankDataValidator.class);
+
 
 
     public ArrayList<Account> getAccounts() {
@@ -169,7 +173,7 @@ public class BankDataValidator {
                 }
             }
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
         this.customers=customerList;
 
